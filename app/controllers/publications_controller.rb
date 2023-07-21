@@ -1,7 +1,7 @@
 class PublicationsController < ApplicationController
-  before_action :set_publication, only: %i[ show update destroy ]
+  before_action :set_publication, only: %i[ show ]
+  before_action :set_publication_update, only: %i[ update destroy ]
   before_action :authenticate_user!
-
 
   # GET /publications
   def index
@@ -12,17 +12,15 @@ class PublicationsController < ApplicationController
 
   # GET /publications/1
   def show
-    render json: @publication
+    render json: @publication   
   end
 
   # POST /publications
   def create
     current_user_id = {user_id: current_user.id}
     @publication = Publication.new(publication_params.merge(current_user_id))
-    puts @publication.user.name
-
     if @publication.save
-      render json: @publication, status: :created, location: @publication
+      render json: @publication,include: [:user], status: :created, location: @publication
     else
       render json: @publication.errors, status: :unprocessable_entity
     end
@@ -46,6 +44,11 @@ class PublicationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_publication
       @publication = Publication.find(params[:id])
+    end
+
+    def set_publication_update
+# render json: {}, status: 405 if current_user.id != Publication.find(params[:id]).user_id
+      @publication = Publication.where(user_id: current_user_id).find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
