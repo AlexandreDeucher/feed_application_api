@@ -3,7 +3,7 @@ class CreatePublications < ActiveRecord::Migration[7.0]
     create_table :publications do |t|
       t.string :title
       t.string :description
-      t.references :user, foreign_key: true
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -17,7 +17,9 @@ class PublicationsController < ApplicationController
 
   # POST /publications
   def create
-    @publication = Publication.new(publication_params)
+    current_user_id = {user_id: current_user.id}
+    @publication = Publication.new(publication_params.merge(current_user_id))
+    puts @publication.user.name
 
     if @publication.save
       render json: @publication, status: :created, location: @publication

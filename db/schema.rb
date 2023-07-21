@@ -14,7 +14,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_184612) do
   create_table "publications", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_publications_on_user_id"
