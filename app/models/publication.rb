@@ -1,6 +1,6 @@
 class Publication < ApplicationRecord
     belongs_to :user
-    has_many :comment
+    has_many :comments, as: :commentable
     
     def as_json(options={})
         super(
