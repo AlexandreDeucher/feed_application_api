@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController
-    before_action :set_comment, :only %i[update create destroy]
+    before_action :set_comment, :only %i[ update destroy] 
     def index
-        @comment = Comment.all
-        
-        render :json @comments
-    end    
+      @comments = Comment.all
+  
+      render json: @comments
+    end
 
     def create
         @comment = Comment.new(comment_params)
