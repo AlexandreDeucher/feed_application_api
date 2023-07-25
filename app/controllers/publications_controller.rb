@@ -18,6 +18,7 @@ class PublicationsController < ApplicationController
 
   # POST /publications
   def create
+    debugger
     current_user_id = {user_id: current_user.id}
     @publication = Publication.new(publication_params.merge(current_user_id))
     if @publication.save
@@ -49,6 +50,7 @@ class PublicationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def publication_params
+      debugger
       params.require(:publication).permit(:title, :description)
     end
 end
