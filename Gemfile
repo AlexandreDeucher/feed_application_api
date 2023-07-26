@@ -15,6 +15,7 @@ gem "puma", "~> 5.0"
 gem 'devise_token_auth'
 gem 'devise'
 gem 'kaminari'
+gem 'api-pagination'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"

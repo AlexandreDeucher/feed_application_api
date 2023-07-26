@@ -4,10 +4,9 @@ class CommentsController < ApplicationController
     before_action :authenticate_user!
 
     def index
-      debugger
-      @comments = @commentable.comments
+      @comments = @commentable.comments.page(params[:page])
   
-      render json: @comments
+      paginate json: @comments
     end
 
     def create
