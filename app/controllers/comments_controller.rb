@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-    before_action :set_commentable
-    before_action :set_comment, only: %i[ update destroy]
+    before_action :set_commentable 
+    before_action :set_commentable_update, only: %i[update destroy]
     before_action :authenticate_user!
 
     def index
@@ -20,12 +20,19 @@ class CommentsController < ApplicationController
     end
 
     def update
-      if @comment.update(comment_params.merge({commentable: @commentable}))
+    @comment = Comment.find(params[:id])
+      if @comment.update(comment_params)
         render json: @comment
       else
         render json: @comment.errors, status: :unprocessable_entity
       end
     end
+
+    def destroy
+      @comment = Comment.find(params[:id])
+      @comment.destroy
+    end
+    
 
     def set_commentable
 
@@ -34,6 +41,10 @@ class CommentsController < ApplicationController
                       elsif params["comment"]["comment_id"]
                         Comment.find(params["comment"]["comment_id"])
                       end
+    end
+
+    def set_commentable_update
+      @comment = Comment.where(user_id: current_user.id).find(params[:id])
     end
 
     def comment_params
