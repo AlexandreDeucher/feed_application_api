@@ -17,6 +17,9 @@ gem 'devise'
 gem 'kaminari'
 gem 'api-pagination'
 gem 'active_model_serializers'
+gem 'rspec-rails'
+gem 'simplecov', require: false, group: :test
+
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
