@@ -16,6 +16,7 @@ gem 'devise_token_auth'
 gem 'devise'
 gem 'kaminari'
 gem 'api-pagination'
+gem 'active_model_serializers'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
