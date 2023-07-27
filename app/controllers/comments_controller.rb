@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     def index
       @comments = @commentable.comments.page(params[:page])
   
-      paginate json: @comments
+      paginate json: @comments, meta: {total: (Comment.count)}
     end
 
     def create

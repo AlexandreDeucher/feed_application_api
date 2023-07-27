@@ -4,9 +4,9 @@ class PublicationsController < ApplicationController
 
   # GET /publications
   def index
+    
     @publications = Publication.all.page(params[:page])
-
-    paginate json: @publications
+    paginate json: @publications, meta: {total: (Publication.count)}
   end
 
   # GET /publications/1
