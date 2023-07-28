@@ -99,6 +99,9 @@ GEM
     erubi (1.12.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     faker (3.2.0)
       i18n (>= 1.8.11, < 2)
     globalid (1.1.0)
@@ -187,11 +190,16 @@ GEM
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
+    rspec (3.12.0)
+      rspec-core (~> 3.12.0)
+      rspec-expectations (~> 3.12.0)
+      rspec-mocks (~> 3.12.0)
     rspec-core (3.12.2)
       rspec-support (~> 3.12.0)
     rspec-expectations (3.12.3)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
+    rspec-json_expectations (2.2.0)
     rspec-mocks (3.12.6)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
@@ -204,6 +212,8 @@ GEM
       rspec-mocks (~> 3.12)
       rspec-support (~> 3.12)
     rspec-support (3.12.1)
+    shoulda-matchers (5.3.0)
+      activesupport (>= 5.2.0)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -233,11 +243,15 @@ DEPENDENCIES
   devise
   devise_token_auth
   factory_bot
+  factory_bot_rails
   faker
   kaminari
   puma (~> 5.0)
   rails (~> 7.0.6)
+  rspec
+  rspec-json_expectations
   rspec-rails
+  shoulda-matchers
   simplecov
   sqlite3 (~> 1.4)
   tzinfo-data
