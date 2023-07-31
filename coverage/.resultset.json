@@ -56,8 +56,16 @@
           0,
           null,
           1,
+          1,
+          1,
+          null,
           null,
           1,
+          null,
+          null,
+          null,
+          null,
+          null,
           1,
           1,
           null,
@@ -681,7 +689,6 @@
           1,
           1,
           null,
-          null,
           null
         ]
       },
@@ -701,8 +708,8 @@
         "lines": [
           1,
           1,
-          5,
-          5,
+          6,
+          6,
           5,
           5,
           null,
@@ -820,16 +827,24 @@
           null
         ]
       },
+      "/home/alexandre/projetos/feed_application_api/spec/requests/comments_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/home/alexandre/projetos/feed_application_api/spec/requests/publications_spec.rb": {
         "lines": [
           1,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          1,
+          1,
+          1,
           null,
           null
         ]
@@ -838,15 +853,24 @@
         "lines": [
           1,
           null,
+          1,
+          2,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
           null,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          0,
+          0,
           null,
           null,
           null,
@@ -855,6 +879,6 @@
         ]
       }
     },
-    "timestamp": 1690828723
+    "timestamp": 1690833845
   }
 }

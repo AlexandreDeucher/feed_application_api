@@ -1,16 +1,25 @@
 require 'rails_helper'
 
-#  RSpec.describe "Users", type: :request do
-#    describe "POST /users" do
-#      it "User creation" do
-#        post user_registration_path
-#        {
-#         "name": "adenir ",
-#         "email": "alexandre@deucher.com",
-#         "password": "12345678",
-#         "password_confirmation": "12345678"
-#        }
-#        expect(response).to have_http_status(200)
-#      end
-#    end
-#  end
+RSpec.describe "Users", type: :controller do
+  let(:user) { create(:user, password: 'Senha@123', password_confirmation: 'Senha@123') }
+
+  before do
+    debugger
+    @request.env['devise.mapping'] = Devise.mappings[:user]
+    sign_in(user)
+    request.headers.merge!(user.create_new_auth_token)
+  end
+    it 'change-password' do
+      debugger
+      params = {
+        id: @current_user.id,
+        user: {password: '123456789', password_confirmation: '123456789'}
+      }
+
+      put :user_registration_path
+      expect(response).to have_http_status(200)
+    end
+end
+
+
+# include Devise::Test::ControllerHelpers
