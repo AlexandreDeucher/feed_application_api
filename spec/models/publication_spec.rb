@@ -2,24 +2,15 @@ require 'rails_helper'
 
 RSpec.describe Publication, type: :model do
 #-----------------------------------TESTE-----------------------------------#     
-    it "testing the creation of a publication" do
+it "testing the creation of a publication and validate fields" do
         publication = create(:publication)
         expect(publication).to be_persisted
+        #verifica os campos
+        validate_presence_of(:title)
+        validate_presence_of(:description)
     end
+
+    it {is_expected.to belong_to(:user)}
+    it {is_expected.to have_many(:comments)}
 #-----------------------------------TESTE-----------------------------------#     
-    it "checking if publication fields exist and checks for null fields" do
-        publication = create(:publication, title: "vamo", description: "receba")
-        expect(publication).to have_attributes(:title => be_kind_of(String).and(be_truthy), :description => be_kind_of(String).and(be_truthy), user: be_truthy)
-    end
-# #-----------------------------------TESTE-----------------------------------# 
-    it "is not valid without a title" do
-        publication = Publication.new(title: nil)
-        expect(publication).to_not be_valid
-    end
-  
-    it "is not valid without a description" do
-        publication = Publication.new(description: nil)
-        expect(publication).to_not be_valid
-    end
-#-----------------------------------TESTE-----------------------------------# 
 end
