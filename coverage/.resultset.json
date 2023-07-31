@@ -7,14 +7,14 @@
           null,
           1,
           null,
+          1,
+          1,
+          1,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          1,
+          1,
+          1,
           null,
           null,
           1,
@@ -671,9 +671,10 @@
         "lines": [
           1,
           1,
+          2,
           1,
           1,
-          1,
+          null,
           null,
           null
         ]
@@ -682,8 +683,8 @@
         "lines": [
           1,
           1,
-          2,
-          2,
+          3,
+          3,
           1,
           null,
           null,
@@ -694,8 +695,8 @@
         "lines": [
           1,
           1,
-          4,
-          4,
+          5,
+          5,
           5,
           5,
           null,
@@ -754,35 +755,6 @@
           null
         ]
       },
-      "/home/alexandre/projetos/feed_application_api/spec/models/publication_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
       "/home/alexandre/projetos/feed_application_api/app/models/publication.rb": {
         "lines": [
           1,
@@ -797,82 +769,8 @@
           null,
           null
         ]
-      },
-      "/home/alexandre/projetos/feed_application_api/spec/models/user_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/alexandre/projetos/feed_application_api/spec/requests/publications_spec.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/alexandre/projetos/feed_application_api/spec/requests/users_spec.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
       }
     },
-    "timestamp": 1690577630
+    "timestamp": 1690825615
   }
 }
