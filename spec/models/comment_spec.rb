@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-#-----------------------------------TESTE-----------------------------------#     
+#-----------------------------------TESTE-----------------------------------#    
+describe "" 
     it "testing the creation of a comment and validate fields" do
         comment = create(:comment)
         expect(comment).to be_persisted

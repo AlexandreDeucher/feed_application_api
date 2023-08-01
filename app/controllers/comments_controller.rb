@@ -34,7 +34,6 @@ class CommentsController < ApplicationController
     
 
     def set_commentable
-
       @commentable = if params["comment"]["publication_id"]
                         Publication.find(params["comment"]["publication_id"])
                       elsif params["comment"]["comment_id"]
@@ -50,11 +49,4 @@ class CommentsController < ApplicationController
         params.require(:comment).permit(:comment)
     end
 end
-    #   def set_comment
-    #       @comment = Comment.find(params[:id])
-    #   end
   
-    #   def set_publication
-    #     debugger
-    #     @publication = Publication.find(params[:publication_id])
-    # end
