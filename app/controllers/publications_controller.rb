@@ -26,7 +26,7 @@ class PublicationsController < ApplicationController
       render json: @publication.errors, status: :unprocessable_entity
     end
   end
-
+  
   # PATCH/PUT /publications/1
   def update
     if @publication.update(publication_params)
