@@ -10,29 +10,44 @@ RSpec.describe PublicationsController, type: :controller do
     sign_in(user)
     request.headers.merge!(user.create_new_auth_token)
   end
-  
-  it 'create' do
-    post :create, params: {title: publication.title, description: publication.description, publication: {title: publication.title, description: publication.description}}
-    expect(response).to have_http_status(201)
-  end
-
-  it 'index' do
-    get :index
-    expect(response).to have_http_status(200)
-  end
-
-  it 'show' do
-    get :show, params: {id: publication.id}
-    expect(response).to have_http_status(200)
-  end
-
-  it 'put' do
-    put :update, params: {id: publication.id, publication: {title: "batata", description: "batata assada"}}
-    expect(response).to have_http_status(200)
-  end
-
-  it 'destroy' do
-    delete :destroy, params: {id: publication.id}
-    expect(response).to have_http_status(204)
+    describe "#Create" do
+      context "when given valid parameters" do
+        it 'create' do
+          post :create, params: {title: publication.title, description: publication.description, publication: {title: publication.title, description: publication.description}}
+          expect(response).to have_http_status(201)
+        end
+      end
+    end
+    describe "#Index" do 
+      context "when given valid parameters" do
+        it 'list' do
+          get :index
+          expect(response).to have_http_status(200)
+        end
+      end
+    end
+    describe "#Show" do
+      context "when given valid parameters" do
+        it 'show unique publication' do
+          get :show, params: {id: publication.id}
+          expect(response).to have_http_status(200)
+        end
+      end
+    end
+    describe "#Update" do
+      context "when given valid parameters" do
+        it 'updated data' do
+          put :update, params: {id: publication.id, publication: {title: "batata", description: "batata assada"}}
+          expect(response).to have_http_status(200)
+        end
+      end
+    end
+    describe "#Destroy" do
+      context "when given valid parameters" do
+      it 'destroy publication' do
+        delete :destroy, params: {id: publication.id}
+        expect(response).to have_http_status(204)
+      end
+    end
   end
 end

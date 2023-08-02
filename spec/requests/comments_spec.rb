@@ -11,24 +11,48 @@ RSpec.describe CommentsController, type: :controller do
     request.headers.merge!(user.create_new_auth_token)
   end
 
-  it 'create' do
-    post :create, params: {comment: {comment: comment.comment, publication_id: publication.id}}
-    expect(response).to have_http_status(200)
+  describe "#Create" do
+    context "when given valid parameters of publications " do 
+      it 'create' do
+        post :create, params: {comment: {comment: comment.comment, publication_id: publication.id}}
+        expect(response).to have_http_status(200)
+      end
+    end
+    context "when given valid parameters of comments " do 
+      it 'create' do
+        post :create, params: {comment: {comment: comment.comment, comment_id: comment.id}}
+        expect(response).to have_http_status(200)
+      end
+    end
   end
-
-  it 'index' do
-    get :index, params: {comment: {publication_id: publication.id}}
-    expect(response).to have_http_status(200)
+  describe "#Index" do
+    context "when given valid parameters of publications " do
+      it 'list' do
+        get :index, params: {comment: {publication_id: publication.id}}
+        expect(response).to have_http_status(200)
+      end
+    end
+    context "when given valid parameters of comments " do
+      it 'list' do
+        get :index, params: {comment: {comment_id: comment.id}}
+        expect(response).to have_http_status(200)
+      end
+    end
   end
-
-  it 'update' do
-    put :update, params: {comment: {comment: comment.comment}, id: comment.id}
-    expect(response).to have_http_status(200)
+  describe "#Update" do
+    context "when given valid parameters" do
+      it 'updated data' do
+        put :update, params: {comment: {comment: comment.comment}, id: comment.id}
+        expect(response).to have_http_status(200)
+      end
+    end
   end
-
-  it 'destroy' do
-    delete :destroy, params: {comment: {comment: comment.comment}, id: comment.id}
-    expect(response).to have_http_status(204)
+  describe "#Destroy" do
+    context "when given valid parameters" do
+      it 'destroy comment' do
+        delete :destroy, params: {comment: {comment: comment.comment}, id: comment.id}
+        expect(response).to have_http_status(204)
+      end
+    end
   end
-
 end
