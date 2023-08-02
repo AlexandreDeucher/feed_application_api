@@ -18,10 +18,10 @@ RSpec.describe CommentsController, type: :controller do
         expect(response).to have_http_status(200)
       end
     end
-    context "when given valid parameters of comments " do 
+    context "when given invalid parameters of comments " do 
       it 'create' do
-        post :create, params: {comment: {comment: comment.comment, comment_id: comment.id}}
-        expect(response).to have_http_status(200)
+        post :create, params: {comment: {comment: nil, comment_id: comment.id}}
+        expect(response).to have_http_status(422)
       end
     end
   end
@@ -44,6 +44,12 @@ RSpec.describe CommentsController, type: :controller do
       it 'updated data' do
         put :update, params: {comment: {comment: comment.comment}, id: comment.id}
         expect(response).to have_http_status(200)
+      end
+    end
+    context "when given invalid parameters" do
+      it 'updated data' do
+        put :update, params: {comment: {comment: nil}, id: comment.id}
+        expect(response).to have_http_status(422)
       end
     end
   end

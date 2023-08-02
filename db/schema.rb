@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_24_192318) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_02_192631) do
   create_table "comments", force: :cascade do |t|
-    t.string "comment"
+    t.string "comment", null: false
     t.integer "user_id", null: false
     t.string "commentable_type", null: false
     t.integer "commentable_id", null: false
@@ -23,8 +23,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_24_192318) do
   end
 
   create_table "publications", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
+    t.string "title", null: false
+    t.string "description", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,10 +43,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_24_192318) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-    t.string "name"
+    t.string "name", null: false
     t.string "nickname"
     t.string "image"
-    t.string "email"
+    t.string "email", null: false
     t.text "tokens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

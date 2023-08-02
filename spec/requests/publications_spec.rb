@@ -17,6 +17,12 @@ RSpec.describe PublicationsController, type: :controller do
           expect(response).to have_http_status(201)
         end
       end
+      context "when given invalid parameters" do
+        it 'create' do
+          post :create, params: {title: nil, description: publication.description, publication: {title: nil, description: nil}}
+          expect(response).to have_http_status(422)
+        end
+      end
     end
     describe "#Index" do 
       context "when given valid parameters" do
@@ -39,6 +45,12 @@ RSpec.describe PublicationsController, type: :controller do
         it 'updated data' do
           put :update, params: {id: publication.id, publication: {title: "batata", description: "batata assada"}}
           expect(response).to have_http_status(200)
+        end
+      end
+      context "when given invalid parameters" do
+        it 'updated data' do
+          put :update, params: {id: publication.id, publication: {title: nil, description: "batata assada"}}
+          expect(response).to have_http_status(422)
         end
       end
     end
