@@ -11,6 +11,11 @@ RSpec.describe PublicationsController, type: :controller do
     request.headers.merge!(user.create_new_auth_token)
   end
   
+  it 'create' do
+    post :create, params: {title: publication.title, description: publication.description, publication: {title: publication.title, description: publication.description}}
+    expect(response).to have_http_status(201)
+  end
+
   it 'index' do
     get :index
     expect(response).to have_http_status(200)

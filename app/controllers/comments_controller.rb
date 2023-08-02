@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
     end
 
     def create
+      debugger
       @comment = Comment.new(comment_params.merge({user: current_user, commentable: @commentable}))
         if @comment.save
           render json: @comment

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-#-----------------------------------TESTE-----------------------------------#     
 describe "#create" do
     context 'when given valid params' do
         it "testing the creation of a user and validate fields" do
@@ -15,5 +14,4 @@ describe "#create" do
         it {is_expected.to have_many(:publications)}
     end
   end
-#-----------------------------------TESTE-----------------------------------#     
 end

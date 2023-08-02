@@ -11,6 +11,11 @@ RSpec.describe CommentsController, type: :controller do
     request.headers.merge!(user.create_new_auth_token)
   end
 
+  it 'create' do
+    post :create, params: {comment: {comment: comment.comment, publication_id: publication.id}}
+    expect(response).to have_http_status(200)
+  end
+
   it 'index' do
     get :index, params: {comment: {publication_id: publication.id}}
     expect(response).to have_http_status(200)
